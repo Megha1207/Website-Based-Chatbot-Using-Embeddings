@@ -156,82 +156,64 @@ The same embedding model is used for both documents and queries to ensure consis
 python -m venv .venv
 
 
-2. Activate the environment
+### 2. Activate the environment
 
-Windows
+```Windows
 
 .venv\Scripts\activate
 
 
-macOS / Linux
+```macOS / Linux
 
 source .venv/bin/activate
 
-3. Install dependencies
+### 3. Install dependencies
 pip install -r requirements.txt
 
-4. Install and start Ollama
+###4. Install and start Ollama
 ollama pull tinyllama
 
 
 Ensure the Ollama service is running.
 
-5. Run the Streamlit application
+### 5. Run the Streamlit application
 streamlit run app.py
 
-User Interface
+## User Interface
 
 The Streamlit interface allows users to:
+- Enter a website URL
+- Index or re-index the website
+- Ask questions via a chat interface
+- View previous conversation history
+- Receive clear fallback responses when answers are unavailable
+- Re-indexing is automatically skipped if embeddings already exist, unless explicitly requested.
 
-Enter a website URL
+## Assumptions
 
-Index or re-index the website
+- Websites primarily contain HTML-based textual content
+- JavaScript-rendered content may be partially unsupported
+- The quality of answers depends on the quality of extracted text
+- The system is designed for factual, informational websites
 
-Ask questions via a chat interface
+## Limitations
 
-View previous conversation history
+- No support for PDFs or image-based text
+- Crawling speed depends on website size and network conditions
+- Local LLM performance depends on available system memory
+- No multilingual support in the current version
 
-Receive clear fallback responses when answers are unavailable
+## Future Improvements
 
-Re-indexing is automatically skipped if embeddings already exist, unless explicitly requested.
+- Asynchronous crawling for faster indexing
+- Improved boilerplate removal for complex websites
+- Source citation display for each answer
+- Docker-based deployment
+- FastAPI backend for scalability
+- Optional hybrid keyword + semantic retrieval
+- Advanced re-ranking models for improved precision
 
-Assumptions
-
-Websites primarily contain HTML-based textual content
-
-JavaScript-rendered content may be partially unsupported
-
-The quality of answers depends on the quality of extracted text
-
-The system is designed for factual, informational websites
-
-Limitations
-
-No support for PDFs or image-based text
-
-Crawling speed depends on website size and network conditions
-
-Local LLM performance depends on available system memory
-
-No multilingual support in the current version
-
-Future Improvements
-
-Asynchronous crawling for faster indexing
-
-Improved boilerplate removal for complex websites
-
-Source citation display for each answer
-
-Docker-based deployment
-
-FastAPI backend for scalability
-
-Optional hybrid keyword + semantic retrieval
-
-Advanced re-ranking models for improved precision
-
-Summary
+## Summary
 
 This project demonstrates a carefully engineered retrieval-augmented chatbot with a strong emphasis on:
 
