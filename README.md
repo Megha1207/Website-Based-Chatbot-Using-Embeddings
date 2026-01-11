@@ -13,6 +13,7 @@ The solution follows a retrieval-augmented generation (RAG) architecture with mu
 ---
 
 ## Architecture Explanation
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ef35123b-7677-4db9-83db-86a1782191e5" />
 
 The system is divided into **two main phases**:
 
