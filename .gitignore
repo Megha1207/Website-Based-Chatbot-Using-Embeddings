@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Vector DB & generated data
+embedding_pipeline/vector_store/
+embedding_pipeline/data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
