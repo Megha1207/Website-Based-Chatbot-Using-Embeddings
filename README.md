@@ -178,6 +178,7 @@ Ensure the Ollama service is running.
 
 ### 5. Run the Streamlit application
 streamlit run app.py
+--
 
 ## User Interface
 
