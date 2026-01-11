@@ -149,11 +149,86 @@ Re-indexing is automatically skipped if embeddings exist, unless explicitly requ
 
 ---
 
-## Summary
+## Deployment (Local – Ollama)
 
-This project demonstrates a carefully engineered retrieval-augmented chatbot with emphasis on:
-- Grounded answers
-- Reusable embeddings
-- Explicit hallucination prevention
-- Clean modular architecture
-- Clear separation of concerns
+This project supports fully local deployment using Ollama for Large Language Model inference. This mode requires no external API keys and ensures all inference runs entirely on the local machine.
+
+### Prerequisites
+
+- Python 3.10+
+- Sufficient system memory (minimum 6 GB recommended)
+- Ollama installed and running
+
+### Install Ollama
+
+Download and install Ollama from:
+
+[https://ollama.com](https://ollama.com)
+
+Verify installation:
+
+```bash
+ollama --version
+```
+
+### Pull the LLM Model
+
+The project is configured to use a lightweight local model by default.
+
+```bash
+ollama pull tinyllama
+```
+
+Ensure the model is available:
+
+```bash
+ollama list
+```
+
+### Activate Virtual Environment
+
+**Windows**
+```bash
+.venv\Scripts\activate
+```
+
+**macOS / Linux**
+```bash
+source .venv/bin/activate
+```
+
+### Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Start Ollama Service
+
+Ensure Ollama is running in the background:
+
+```bash
+ollama run tinyllama
+```
+
+You may exit the prompt after confirming it starts successfully.
+
+### Run the Application
+```bash
+streamlit run app.py
+```
+
+The application will automatically detect and use Ollama as the LLM provider when no cloud API key is configured.
+
+### Notes
+
+- All LLM inference runs locally on the user’s machine
+- No data is sent to external services
+- Performance depends on available system memory and CPU
+- Larger models may require additional RAM
+
+### When to Use Ollama Deployment
+
+- Local development and testing
+- Privacy-sensitive data
+- Offline environments
+- Demonstrating system design without cloud dependencies
